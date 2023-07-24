@@ -1,0 +1,54 @@
+<!DOCTYPE html><html><head> 
+    <meta charset="UTF-8">
+    <style>
+span{
+    font-size: 40px;
+    margin-right: 20px;
+}      
+.hide{
+    display: none;
+    pointer-events: none;
+}
+.dis{
+    pointer-events: none;
+}
+    </style> 
+    
+  </head>
+    <body style="background-color:#00be6e;"> 
+              <div style="width:100%; text-align: center;padding: 50% 0;">
+                <span data-EM="0">😍</span>
+                <span data-EM="1">😒</span> 
+                <span data-EM="2">😁</span>                 
+              </div>
+              
+              <script>
+              let m=document.getElementsByTagName("span");
+              const a = Array.from(m);
+              for(const im of a){
+                im.onclick = function(){
+                    t=im.getAttribute('data-EM')
+                    im.className +="dis"
+                    if(t==0){
+                        im.innerHTML = "New Heading"; 
+                        a[1].className +="hide"
+                        a[2].className +="hide"
+                    }
+                    else if(t==1){
+                        im.innerHTML = "New Heading2";   
+                        a[0].className +="hide"
+                        a[2].className +="hide"
+                    }
+                    else{
+                        im.innerHTML = "New Heading3";
+                        a[0].className +="hide"
+                        a[1].className +="hide"
+                        
+                    }
+                
+               
+            };
+        }
+              </script>   
+</body>
+    </html>

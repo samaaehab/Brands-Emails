@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="x-apple-disable-message-reformatting"> 
+	<style rel="stylesheet" type="text/css"> 
+	    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+        
+        body{
+            font-family: arial !important;
+		}
+        a{
+            text-decoration: none !important;
+        }
+        
+        @media screen and (max-width: 480px) {
+			.link{
+                padding: 5px !important;
+            }
+            .res_img{
+                width:125px !important;
+                max-width:125px !important;
+            }
+            .txt{
+                font-size: 22px !important;
+                line-height: 30px !important;
+                padding: 0 10px !important;
+            }
+            .res_desc{
+                font-size:10px !important;
+                width: 130px !important;
+                max-width: 130px !important;
+            }
+			.row-content{
+                width: 100% !important;
+            }
+            .column{
+                display: block !important;
+                width: 100% !important;
+                vertical-align: middle !important;
+            }
+            .img-block{
+                max-width: 235px !important;
+                width:235px !important;
+            }
+            .category{
+                width:90% !important;
+                padding: 35px 25px !important;
+            }
+            .category img{
+                max-width: 130px !important;
+                width: 130px !important;
+            }
+            .category-img{
+                padding-bottom: 8px !important;
+            }
+        }
+	</style>
+</head>
+
+<body style="margin:0;padding:0;word-spacing: normal;">
+    <table align="center" border="0" width="600" cellspacing="0" cellpadding="0" style="width:100%;max-width:600px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+        <!-- divider -->
+      <tr>
+        <td height="40" style="background-color:#007355;"></td>
+      </tr>
+        <!-- logo -->
+        <tr>
+            <td align="center" width="600">
+                <a href="https://www.masheedgate.com/?locale=en">
+                    <img src="https://hosting.photobucket.com/images/i/Digi-Tell/90CC64F4-86BB-4769-8293-A4F535608255.png" alt="Masheed Logo"
+                    width="200" style="max-width: 200px; display: inline-block">
+                </a>
+            </td>
+        </tr>
+        <!-- content -->
+        <tr>
+            <td align="center" width="600" style="padding-bottom:30px;">
+                <h1 style="color:#f7a823;font-size:30px;margin-bottom:10px;margin-top:0;">Your Order Is Just one Click Away!</h1>
+                <h1 style="color:#888888;font-size:22px;margin-bottom:0;margin-top:0;">We noticed that you left some items in your cart.<br>Do you still want them?</h1>    
+            </td>
+        </tr>
+        <!-- Cart_products -->
+        <tr>
+            
+                <td align="center" width="600">
+                    <table class="row-content" align="center" width="600" border="0" cellspacing="5" cellpadding="0" style="width:100%;max-width:600px;border-spacing: 5px;">
+                        {{event["custom"]["Cart Viewed"]["custom"]["Product Image"]}}
+                        {{event["custom"]["Added To Cart"]["custom"]["Image"]}}
+                        <br>
+                        
+                        {% set image= event["custom"]["Added To Cart"]["custom"]["Image"] %}
+                        {% set images= event["custom"]["Cart Viewed"]["custom"]["Product Image"] %}
+                        
+                        {% set products= event["custom"]["Cart Viewed"]["custom"]["Product Details"] %}
+                        {% set split = products.split(',') %}
+                        {% set splitImage = images.split(', ') %}
+                        <tr>
+                            <!-- product_img -->
+                            <td class="column" align="center" width="280">
+                                {% for item in splitImage  %}  
+                               <table align="center" width="280" border="0" cellspacing="0" cellpadding="0" style="width:100%;max-width:280;">
+                                <tr>
+                                    <td align="center" width="280">
+                                        <img src='https://www.masheedgate.com{{item}}' width="250" style="max-width:250px" alt="المنتج الاول">
+                                    </td>
+                                </tr>
+                               </table>
+                               {% endfor %}
+                            </td>                   
+                            <!-- product_desc -->
+                            <td class="column" align="center" width="280">
+                                {% for item2 in split  %}  
+                                <table align="center" width="280" border="0" cellspacing="0" cellpadding="0" style="width:100%;max-width:280;">
+                                <tr>
+                                    <td align="center" width="280">
+                                        <p style="font-size:18px;font-weight:bold;color: #888888;">    
+                              
+                                            {{ item2   }}
+            
+                                           </p>
+                                    </td>
+                                </tr>
+                                </table>
+                                {% endfor %}
+                            </td>
+                        </tr>
+
+{{event["custom"]["Cart Viewed"]["custom"]["No. Of Products"]}}
+{{event["custom"]["Cart Viewed"]["custom"]["Product Details"]}}
+                    </table>
+                </td>
+            
+        </tr>
+
+        <!-- goBack toCart -->
+        <tr>
+            <td align="center" width="280"  style="padding-top: 15px;">
+            <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.masheedgate.com/checkout/cart" style="height:35px;width:300px;v-text-anchor:middle;" arcsize="42%" stroke="false" fillcolor="#007355"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#f7a823; font-family:Arial, sans-serif; font-size:20px"><!
+                        [endif]-->
+                        <a href="https://www.masheedgate.com/checkout/cart" target="_blank" style="text-decoration: none;
+                        display: inline-block;
+                        width: 300px;
+                        text-align: center;
+                        color: #f7a823;
+                        background-color: #007355;
+                        border-radius: 16px;
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        mso-border-alt: none;
+                        word-break: keep-all;
+                        max-width: 300px;">
+                            <span style="display: block;
+                            font-size: 20px;
+                            line-height: 35px;
+                            text-align: center;
+                            font-weight: bold;">
+                                Return to Cart
+                            </span>
+                        </a>
+                    <!--[if mso]></center></v:textbox></v:roundrect>
+                <![endif]-->
+            </td>
+        </tr>
+      
+    <!-- products -->
+    <tr>
+        <td align="center" width="550" style="padding-bottom:20px; padding-top:20px;">
+            <h1 style="color:#007355;font-size:25px;font-weight: 700;">Top Selling Products</h1>
+            <table class="category" align="center" width="550" cellpadding="0" cellspacing="0" style="max-width:550px;width:100%;background-color: #fafafa;border: 1px solid #007355;padding: 35px 10px;border-radius: 10px;">
+                <tr>
+                    <td class="category-img" align="center" width="250" style="padding-bottom: 30px">
+                        <a href="https://www.masheedgate.com/products/saudi-cement---src-bag">
+                            <img src="https://hosting.photobucket.com/images/i/Digi-Tell/5(32).png" width="235"  style="max-width:235px;width:100%;" alt="Saudi Cement - SRC Bag">   
+                            <p class="res_desc" style="font-size: 16px;
+                            color: #ffffff;
+                            vertical-align: top;
+                            margin-top: 5px;
+                            margin-bottom: 5px;
+                            background-color: #007355;
+                            width: 200px;
+                            max-width: 200px;
+                            line-height: 26px;
+                            border-radius: 15px;">
+                                Saudi Cement - SRC Bag
+                             </p>
+                        </a>
+                         
+                    </td>
+                    <td class="category-img" align="center" width="250" style="padding-bottom: 30px">
+                        <a href="https://www.masheedgate.com/products/saudi-cement---opc-bag">
+                            <img src="https://hosting.photobucket.com/images/i/Digi-Tell/6(26).png" width="235"  style="max-width:235px;width:100%;" alt="Saudi Cement - OPC Bag">
+                            <p class="res_desc" style="font-size: 16px;
+                            color: #ffffff;
+                            vertical-align: top;
+                            margin-top: 5px;
+                            margin-bottom: 5px;
+                            background-color: #007355;
+                            width: 200px;
+                            max-width: 200px;
+                            line-height: 26px;
+                            border-radius: 15px;">
+                                Saudi Cement - OPC Bag
+                             </p>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" width="250" style="padding-bottom: 30px">
+                        <a href="https://www.masheedgate.com/products/porcelain-tile-fix---saveto">
+                            <img src="https://hosting.photobucket.com/images/i/Digi-Tell/7(15).png" width="235"  style="max-width:235px;width:100%;" alt="Porcelain Tile Fix - Saveto - 20Kg">
+                            <p class="res_desc" style="font-size: 16px;
+                            color: #ffffff;
+                            vertical-align: top;
+                            margin-top: 5px;
+                            margin-bottom: 5px;
+                            background-color: #007355;
+                            width: 200px;
+                            max-width: 200px;
+                            line-height: 26px;
+                            border-radius: 15px;">
+                                 Porcelain Tile Fix (Saveto)
+                             </p>
+                        </a>
+                    </td>
+                    <td align="center" width="250" style="padding-bottom: 30px">
+                        <a href="https://www.masheedgate.com/products/siefco---hollow-block-3-cell">
+                            <img src="https://hosting.photobucket.com/images/i/Digi-Tell/8(13).png" width="235"  style="max-width:235px;width:100%;" alt="Siefco - Hollow Block 3 Cell">
+                            <p class="res_desc" style="font-size: 16px;
+                            color: #ffffff;
+                            vertical-align: top;
+                            margin-top: 5px;
+                            margin-bottom: 5px;
+                            background-color: #007355;
+                            width: 200px;
+                            max-width: 200px;
+                            line-height: 26px;
+                            border-radius: 15px;">
+                                 Siefco-Hollow Block 3 Cell
+                             </p>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" width="250">
+                        <a href="https://www.masheedgate.com/products/ceramic-tile-fix---saveto">
+                            <img src="https://hosting.photobucket.com/images/i/Digi-Tell/9(12).png" width="235"  style="max-width:235px;width:100%;" alt="Ceramic Tile Fix (Saveto)">
+                            <p class="res_desc" style="font-size: 16px;
+                            color: #ffffff;
+                            vertical-align: top;
+                            margin-top: 5px;
+                            margin-bottom: 5px;
+                            background-color: #007355;
+                            width: 200px;
+                            max-width: 200px;
+                            line-height: 26px;
+                            border-radius: 15px;">
+                                 Ceramic Tile Fix (Saveto)
+                             </p>
+                        </a>
+                    </td>
+                    <td align="center" width="250">
+                        <a href="https://www.masheedgate.com/products/zayed--block">
+                            <img src="https://hosting.photobucket.com/images/i/Digi-Tell/10(8).png" width="235"  style="max-width:235px;width:100%;" alt="Jawdah (ZAYED)- Block">
+                            <p class="res_desc" style="font-size: 16px;
+                            color: #ffffff;
+                            vertical-align: top;
+                            margin-top: 5px;
+                            margin-bottom: 5px;
+                            background-color: #007355;
+                            width: 200px;
+                            max-width: 200px;
+                            line-height: 26px;
+                            border-radius: 15px;">
+                                 Jawdah (ZAYED)-Block
+                             </p>
+                        </a>
+                    </td>
+                </tr>
+            </table>       
+        </td>
+    </tr>
+    <!-- Categories -->
+    <tr>
+        <td align="center" style="padding-top: 30px;">
+            <h1 style="color:#027850;font-size:30px;margin-bottom:0;">
+                Top Categories
+            </h1>
+        </td>
+     </tr>
+    <tr>
+        <td align="center" width="500" >
+{% set category= event["custom"]["Category Viewed"]["custom"]["Category Name"] %}
+{{category}}
+
+{% if category=="مواد اسمنتية" %}
+            <table align="center" border="0" width="500" cellspacing="0" cellpadding="0" style="width:100%;max-width: 500px;padding-top: 20px;padding-bottom: 20px;">
+               
+
+
+ <tr>
+                    <!-- categ 1 -->
+                    <td align="center" width="180" style="padding:5px;"> 
+                        <table align="center" width="180" cellspacing="5" cellpadding="0" style="width:100%;max-width:180px">
+                            <tr>
+                                <td align="center" width="150">
+                                    <a href="https://www.masheedgate.com/categories/cementdelivery">
+                                        <img class="res_img" src="https://hosting.photobucket.com/images/i/Digi-Tell/Welcome_Template_assets_(2).png" alt="Cemenitious"
+                                        width="150" style="max-width:150px;">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center"  style="background-color:#027850;border-radius:10px;vertical-align: top;">
+                                    <p class="res_desc" style="font-size:16px;color:#ffffff;vertical-align: top;margin-top:5px;margin-bottom:5px;">
+                                        Cemenitious materials
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <!-- categ 2 -->
+                    <td align="center" width="180" style="padding:5px;">
+                        <table align="center" width="180" cellspacing="5" cellpadding="0" style="width:100%;max-width:180px">
+                            <tr>
+                                <td align="center" width="150">
+                                    <a href="https://www.masheedgate.com/categories/blocks-and-bricks">
+                                        <img class="res_img" src="https://hosting.photobucket.com/images/i/Digi-Tell/5(22).png" alt="Blocks"
+                                        width="150" style="max-width:150px;">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center"  style="background-color:#027850;border-radius:10px;vertical-align: top;">
+                                    <p class="res_desc" style="font-size:16px;color:#ffffff;vertical-align: top;margin-top:5px;margin-bottom:5px;">
+                                        Blocks and bricks
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+            </table>
+{% elif category=="الطابوق والطوب" %}
+            <table align="center" border="0" width="500" cellspacing="0" cellpadding="0" style="width:100%;max-width: 500px;padding-top: 20px;padding-bottom: 20px;">
+
+
+                <tr>
+                    <!-- categ 3 -->
+                    <td align="center" width="180" style="padding:5px;">
+                        <table align="center" width="180" cellspacing="5" cellpadding="0" style="width:100%;max-width:180px">
+                            <tr>
+                                <td align="center" width="150">
+                                    <a href="https://www.masheedgate.com/categories/sand-anda-ggregat">
+                                        <img class="res_img" src="https://hosting.photobucket.com/images/i/Digi-Tell/Welcome_Template_assets.png" alt="Sand and aggregates"
+                                        width="150" style="max-width:150px;">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center"  style="background-color:#027850;border-radius:10px;vertical-align: top;">
+                                    <p class="res_desc" style="font-size:16px;color:#ffffff;vertical-align: top;margin-top:5px;margin-bottom:5px;">
+                                        Sand and aggregates
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <!-- categ 4 -->
+                    <td align="center" width="180" style="padding:5px;">
+                        <table align="center" width="180" cellspacing="5" cellpadding="0" style="width:100%;max-width:180px">
+                            <tr>
+                                <td align="center" width="150">
+                                    <a href="https://www.masheedgate.com/categories/hardware">
+                                        <img class="res_img" src="https://hosting.photobucket.com/images/i/Digi-Tell/7(16).png" alt="Tools"
+                                        width="150" style="max-width:150px;">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center"  style="background-color:#027850;border-radius:10px;vertical-align: top;">
+                                    <p class="res_desc" style="font-size:16px;color:#ffffff;vertical-align: top;margin-top:5px;margin-bottom:5px;">
+                                       Tools
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    
+                </tr>
+            </table>
+{% else %}
+            <table align="center" border="0" width="500" cellspacing="0" cellpadding="0" style="width:100%;max-width: 500px;padding-top: 20px;padding-bottom: 20px;">
+
+
+
+                <tr>
+                    <!-- categ 5 -->
+                    <td align="center" width="180" style="padding:5px;">
+                        <table align="center" width="180" cellspacing="5" cellpadding="0" style="width:100%;max-width:180px">
+                            <tr>
+                                <td align="center" width="150">
+                                    <a href="https://www.masheedgate.com/categories/bathroom-fixtures">
+                                        <img class="res_img" src="https://hosting.photobucket.com/images/i/Digi-Tell/9(11).png" alt="Bathroom Fixtures"
+                                        width="150" style="max-width:150px;">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center"  style="background-color:#027850;border-radius:10px;vertical-align: top;">
+                                    <p class="res_desc" style="font-size:16px;color:#ffffff;vertical-align: top;margin-top:5px;margin-bottom:5px;">
+                                       Bathroom Fixtures
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <!-- categ 6 -->
+                    <td align="center" width="180" style="padding:5px;">
+                        <table align="center" width="180" cellspacing="5" cellpadding="0" style="width:100%;max-width:180px">
+                            <tr>
+                                <td align="center" width="150">
+                                    <a href="https://www.masheedgate.com/categories/plumbing">
+                                        <img class="res_img" src="https://hosting.photobucket.com/images/i/Digi-Tell/6(20).png" alt="Plumbing"
+                                        width="150" style="max-width:150px;">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center"  style="background-color:#027850;border-radius:10px;vertical-align: top;">
+                                    <p class="res_desc" style="font-size:16px;color:#ffffff;vertical-align: top;margin-top:5px;margin-bottom:5px;">
+                                        Plumbing
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    
+                </tr>
+
+            </table>
+{% endif %}    
+        </td>
+    </tr>
+        <!-- footer -->
+        <tr>
+            <td align="center" width="600" style="padding-top:10px;">
+                <h1 style="color:#027951; font-size:20px;">
+                    Follow us on
+                </h1>
+                <!-- social -->
+                <p>
+                    <a href="https://www.instagram.com/masheedgate/" style="text-decoration:none;outline:none;">
+                        <img src="https://hosting.photobucket.com/images/i/Digi-Tell/6EB93936-DBBC-428F-8D75-E272A4622025.png" alt="IG"
+                        width="30" style="max-width:30px;">
+                    </a>
+                    <a href="https://www.facebook.com/MasheedGateKSA" style="text-decoration:none;outline:none;">
+                        <img src="https://hosting.photobucket.com/images/i/Digi-Tell/67BE5292-407F-4B24-BE4B-11320E98E16E.png" alt="FB"
+                        width="30" style="max-width:30px;">
+                    </a>
+                    <a href="https://twitter.com/MasheedGate" style="text-decoration:none;outline:none;">
+                        <img src="https://hosting.photobucket.com/images/i/Digi-Tell/4AFF5D9A-11D3-4E85-BE81-E1D601B7FFE1.png" alt="Twitter"
+                        width="30" style="max-width:30px;">
+                    </a>
+                    <a href="https://youtube.com/channel/UCoDWgmoqjuiQpJEIlYmvkUQ" style="text-decoration:none;outline:none;">
+                        <img src="https://hosting.photobucket.com/images/i/Digi-Tell/EE2767A0-A000-4035-B90F-C8FA4BC77614.png" alt="YT"
+                        width="30" style="max-width:30px;">
+                    </a>
+                    <a href="https://www.linkedin.com/company/masheed-gate/" style="text-decoration:none;outline:none;">
+                        <img src="https://hosting.photobucket.com/images/i/Digi-Tell/77995813-B2A6-4233-9326-90A7E2F45862.png" alt="LI"
+                        width="30" style="max-width:30px;">
+                    </a>
+                </p>
+                <!-- download app -->
+                <p>
+                    <a href="https://apps.apple.com/dz/app/masheed-gate/id1529148642" style="text-decoration:none;outline:none;">
+                        <img src="https://hosting.photobucket.com/images/i/Digi-Tell/original(1).png" alt="App Store"
+                        width="95" style="display:inline-block;max-width:95px; height:auto;padding-right: 2px;">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.masheed.ecommerce" style="text-decoration:none;outline:none;">
+                        <img src="https://hosting.photobucket.com/images/i/Digi-Tell/original.png" alt="google play"
+                        width="103" style="display:inline-block;max-width:103px; height:auto;padding-left: 2px;">
+                    </a>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" width="600" ">
+                <h1 style="color:#027951; font-size:20px;">
+                    Reach us out through
+                </h1>
+                <span style="color:#027951; font-size:16px;font-weight: 600;">
+                    Mobile: 0138870114
+                </span>
+                <span style="font-size:20px;color:#027951">|</span>
+                <span style="color:#027951; font-size:16px;font-weight: 600;">
+                    WhatsApp: <a style="color:#027951;text-decoration: none;" href="https://cutt.ly/MGCS">Click Here</a>
+                </span>
+
+            </td>
+        </tr>
+         <!-- divider -->
+         <tr>
+            <td align="center" width="600" style="padding-top:20px;padding-bottom:20px;">
+                <table align="center" border="0" width="100%" cellspacing="0" cellpadding="0" >
+                        <tr>
+                            <td style="border-top: 2px solid #027951; "></td>
+                        </tr>
+                </table>
+            </td>
+        </tr>
+        <!-- unsubscribe -->
+        
+        <tr>
+            <td align="center" width="600" style=" padding-bottom:10px;">
+                <a href="#" style="font-size:18px;font-weight:600;color:#027951">
+                    Unsubscribe
+                </a><span style="font-size:20px;color:#027951">|</span><a href="https://www.masheedgate.com/pages/privacy-policy" style="font-size:18px;font-weight:600;color:#027951">
+                    Privacy policy
+                </a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
